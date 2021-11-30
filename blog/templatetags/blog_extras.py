@@ -9,8 +9,8 @@ user_model = get_user_model()
 
 #@register.filter(name="author_details")
 @register.filter
-def author_details(author, current_user):
-    if not isinstance(author, user_model=None):
+def author_details(author, current_user=None):
+    if not isinstance(author, user_model):
         return ""
       
     if author == current_user:
