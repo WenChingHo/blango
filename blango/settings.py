@@ -143,6 +143,19 @@ class Dev(Configuration):
 
     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+    LOGGING = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "handlers": {
+            "console": {"class": "logging.StreamHandler", "stream": "ext://sys.stdout"},
+            "file": {"class": "logging.FileHandler", "filename": "blango.log"},
+
+        },
+        "root": {
+            "handlers": ["console", "file"],
+            "level": "DEBUG",
+        }
+    }
 
 
 class Prod(Dev):
